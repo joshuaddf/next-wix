@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Space_Mono } from "next/font/google";
 import "./globals.css";
+
+// const spaceMono = Space_Mono({
+//   variable: "--font-space-mono",
+//   subsets: ["latin"],
+//   fontWeight: ["400", "700"],
+// })
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
