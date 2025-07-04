@@ -1,13 +1,36 @@
 import React from 'react'
-import Image from "next/image";
+import Link from 'next/link';
+import { wixClient } from '@/lib/wixClient';
+import { notFound } from 'next/navigation';
 
-const page = () => {
+const page = async ({ params }: { params: { slug: string } }) => {
+    const { slug } = params;
+
+    const posts = await wixClient.items.query("Exampleposts").eq("slug", slug).find();
+    const blogPosts = posts.items[0];
+    console.log(blogPosts);
+
+    if( !blogPosts ) {
+        return notFound();
+    }
+
     return (
-        <div className='font-geist-mono grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20'>
-            <div className="">
-                <h1></h1>
-                <p></p>
-                <Image src={""} alt="image" />
+        // <div className='font-geist-mono grid grid-rows-[20px_1fr_20px] items-center justify-center h-full p-8 pb-20 gap-16 sm:p-20'>
+        <div className=" flex items-center justify-center flex-col h-screen">
+
+            <div className="flex flex-col items-start px-6">
+                <span className='pb-6 font-semibold'><Link href="/blog">&larr; Back</Link></span>
+
+                <h1 className='font-semibold'>&#9824; {blogPosts.title}</h1>
+                <p className='py-4'>{blogPosts.description}</p>
+                <div className="items-end flex flex-col w-full gap-2">
+                    <p className='text-sm font-semibold'>Author: {blogPosts.author}&#9816;</p>
+                    <p className='text-sm font-semibold'>Date published: {blogPosts.date}</p>
+                    <ul className='flex gap-3'>
+                       <span className='font-extrabold'>&#127991;</span> <li className='text-black/[.4] text-sm'>{blogPosts.arraystring}</li>
+                    </ul>
+                </div>
+                {/* <Image src={""} alt="image" /> */}
             </div>
         </div>
     )

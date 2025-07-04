@@ -4,5 +4,5 @@
   --font-geist-mono: var(--font-geist-sans);
 }
 body {
-  @apply font-geist-mono bg-slate-200
+  @apply font-geist-mono bg-rose-100/[.8];
 }

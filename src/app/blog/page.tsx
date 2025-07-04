@@ -2,33 +2,29 @@ import React from 'react'
 import Link from "next/link";
 import { wixClient } from '@/lib/wixClient';
 
-const page  = async () => {
-
-  // const {items:posts} = await wixClient.collections.getDataCollection("Exampleposts");
+const page = async () => {
+  const posts = await wixClient.items.query("Exampleposts").ascending("title").find();
+  const blogposts = posts.items;
 
   return (
     <div className=' flex items-center justify-center flex-col h-full w-full px-6'>
       <div className="flex flex-col items-start">
-        <span className='pb-3 font-semibold'><Link href="/">&#8592; Back</Link></span>
+        <span className='pb-6 font-semibold'><Link href="/">&larr; Back</Link></span>
         <h1 className='bg-3'>Welcome to the blog page. <br />
           This is where you view all the blogs that I write.
           🤠</h1>
 
-        <h2 className='pt-6 '>Blogs (<em>Coming sooon.</em><span>😛</span>)</h2>
-        <p><strong>Wait! </strong>I'm studying for midsem. <br />
-        See you after the exam.
-        </p>
-       
-        <ul>
-          <li>
-            {/* {posts.map((post: any) => (
-              <div key={post.id}>
-                <h3>{post.title}</h3>
-                </div>
-            ))} */}
-          </li>
-        </ul>
+        <h2 className='pt-6 font-bold'>Silly posts.😛 <em className='text-black/[.2]'>(Try tapping)</em></h2>
       </div>
+      <ul className='text-start items-start w-full'>
+        <li className='flex flex-col items-start'>
+          {blogposts.map((post: any) => (
+            <div key={post.index} className=''>
+              <Link href={`/blog/${post.slug}`}><span className='text-sm font-extralight pr-2'>&#9828;</span>{post.title}</Link>
+            </div>
+          ))}
+        </li>
+      </ul>
     </div>
   )
 }
