@@ -1,6 +1,11 @@
 import React from 'react'
 import Link from "next/link";
 import { wixClient } from '@/lib/wixClient';
+import { Metadata } from 'next';
+
+export const metadata: Metadata= {
+  title: "Blog"
+}
 
 const page = async () => {
   const posts = await wixClient.items.query("Exampleposts").ascending("title").find();
@@ -20,7 +25,7 @@ const page = async () => {
         <li className='flex flex-col items-start'>
           {blogposts.map((post: any) => (
             <div key={post.index} className=''>
-              <Link href={`/blog/${post.slug}`}>
+              <Link className='text-sm' href={`/blog/${post.slug}`}>
               <span className='text-sm font-extralight pr-2'>&#9828;</span>
               {post.title}</Link>
             </div>

@@ -1,13 +1,23 @@
 import React from 'react'
 import Link from 'next/link';
 import { wixClient } from '@/lib/wixClient';
+import { Metadata } from 'next';
 
-const page = async ({ params }: { params: { slug: string } }) => {
-    const { slug } = params;
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params;
+    const posts = await wixClient.items.query('Exampleposts').eq('slug', slug).find();
+    const blogPost = posts.items[0];
+
+    return {
+        title: blogPost.slug,
+    };
+}
+
+const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
+    const { slug } = await params;
 
     const posts = await wixClient.items.query("Exampleposts").eq("slug", slug).find();
     const blogPosts = posts.items[0];
-    console.log(blogPosts);
 
     return (
         <div className=" flex items-center justify-center flex-col h-screen">
@@ -21,7 +31,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
                     <p className='text-sm font-semibold'>Author: {blogPosts.author}&#9816;</p>
                     <p className='text-sm font-semibold'>Date published: {blogPosts.date}</p>
                     <ul className='flex gap-3'>
-                       <span className='font-extrabold'>&#127991;</span> <li className='text-black/[.4] text-sm'>{blogPosts.arraystring}</li>
+                        <span className='font-extrabold'>&#127991;</span> <li className='text-black/[.4] text-sm'>{blogPosts.arraystring}</li>
                     </ul>
                 </div>
             </div>

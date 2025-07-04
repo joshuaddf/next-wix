@@ -21,7 +21,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cupcake's Blog(salt)",
+  title: {
+    default: "Cupcake's Blog(salt) 🧁",
+    template: "%s | Cupcake's Blog(salt) 🧁",
+  },
   description: "Unserious activities. 😛",
 };
 
