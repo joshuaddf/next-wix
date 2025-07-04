@@ -7,12 +7,18 @@ const page  = async () => {
   // const {items:posts} = await wixClient.collections.getDataCollection("Exampleposts");
 
   return (
-    <div className='font-geist-mono flex items-center justify-center flex-col h-screen'>
+    <div className=' flex items-center justify-center flex-col h-full w-full px-6'>
       <div className="flex flex-col items-start">
-        <span className='pb-3 font-semibold'><Link href="/">Back</Link></span>
-        <h1>Welcome to the blog page. 🤠</h1>
+        <span className='pb-3 font-semibold'><Link href="/">&#8592; Back</Link></span>
+        <h1 className='bg-3'>Welcome to the blog page. <br />
+          This is where you view all the blogs that I write.
+          🤠</h1>
 
-        <h2 className='py-6 '>Blogs</h2>
+        <h2 className='pt-6 '>Blogs (<em>Coming sooon.</em><span>😛</span>)</h2>
+        <p><strong>Wait! </strong>I'm studying for midsem. <br />
+        See you after the exam.
+        </p>
+       
         <ul>
           <li>
             {/* {posts.map((post: any) => (

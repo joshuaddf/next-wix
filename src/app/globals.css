@@ -3,3 +3,6 @@
 @theme {
   --font-geist-mono: var(--font-geist-sans);
 }
+body {
+  @apply font-geist-mono bg-slate-200
+}
