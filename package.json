@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@wix/data": "^1.0.250",
     "@wix/members": "^1.0.300",
     "@wix/sdk": "^1.15.24",
     "next": "15.3.4",
