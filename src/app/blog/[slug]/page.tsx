@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link';
 import { wixClient } from '@/lib/wixClient';
-import { notFound } from 'next/navigation';
 
 const page = async ({ params }: { params: { slug: string } }) => {
     const { slug } = params;
@@ -10,12 +9,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
     const blogPosts = posts.items[0];
     console.log(blogPosts);
 
-    if( !blogPosts ) {
-        return notFound();
-    }
-
     return (
-        // <div className='font-geist-mono grid grid-rows-[20px_1fr_20px] items-center justify-center h-full p-8 pb-20 gap-16 sm:p-20'>
         <div className=" flex items-center justify-center flex-col h-screen">
 
             <div className="flex flex-col items-start px-6">
@@ -30,7 +24,6 @@ const page = async ({ params }: { params: { slug: string } }) => {
                        <span className='font-extrabold'>&#127991;</span> <li className='text-black/[.4] text-sm'>{blogPosts.arraystring}</li>
                     </ul>
                 </div>
-                {/* <Image src={""} alt="image" /> */}
             </div>
         </div>
     )

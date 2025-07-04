@@ -20,7 +20,9 @@ const page = async () => {
         <li className='flex flex-col items-start'>
           {blogposts.map((post: any) => (
             <div key={post.index} className=''>
-              <Link href={`/blog/${post.slug}`}><span className='text-sm font-extralight pr-2'>&#9828;</span>{post.title}</Link>
+              <Link href={`/blog/${post.slug}`}>
+              <span className='text-sm font-extralight pr-2'>&#9828;</span>
+              {post.title}</Link>
             </div>
           ))}
         </li>
