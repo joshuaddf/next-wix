@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     template: "%s | Cupcake's Blog(salt) 🧁",
   },
   description: "Unserious activities. 😛",
+  icons: {
+    icon: "/favicon.ico",
+  }
 };
 
 export default function RootLayout({
