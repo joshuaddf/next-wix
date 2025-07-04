@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   description: "Unserious activities. 😛",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon-2.png",
   }
 };
 
