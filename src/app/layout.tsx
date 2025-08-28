@@ -21,14 +21,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://next-wix.vercel.app/"),
+  keywords: ["blog", "cupcake", "silly", "fun", "salt", "unserious activities"],
   title: {
     default: "Cupcake's Blog(salt) 🧁",
     template: "%s | Cupcake's Blog(salt) 🧁",
   },
-  description: "Unserious activities. 😛",
+  openGraph: {
+    description: "Unserious activities. 😛",
+    images: ['/favicon-2.png']
+  },
   icons: {
     icon: "/favicon-2.png",
-  }
+  },
 };
 
 export default function RootLayout({
