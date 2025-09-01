@@ -1,14 +1,13 @@
-import type { MetadataRoute } from "next";
+import { MetadataRoute } from "next";
+import sitemap from "./sitemap";
 
 export default function robot(): MetadataRoute.Robots {
-  const baseUrl = "https://next-wix.vercel.app/";
-
-  return {
-    rules: {
-      userAgent: "*",
-      allow: ["/", "/blog"],
-      disallow: [],
-    },
-    sitemap: `${baseUrl}sitemap.xml`,
-  };
+    return {
+        rules: {
+            userAgent: "*",
+            allow: ["/", "/blog"],
+            disallow: [],
+        },
+        sitemap: "https://www.next-wix.vercel.app/sitemap.xml",
+    };
 }
