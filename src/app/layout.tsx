@@ -21,8 +21,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.next-wix.vercel.app/"),
-  keywords: ["blog", "cupcake", "silly", "fun", "salt", "unserious activities", "cupcake(salt)"],
+  metadataBase: new URL("https://next-wix.vercel.app/"),
+  keywords: ["blog", "cupcake", "silly", "fun", "salt", "unserious activities"],
   title: {
     default: "Cupcake's Blog(salt) 🧁",
     template: "%s | Cupcake's Blog(salt) 🧁",
